@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un nouvelle animé</title>
+    <link rel="stylesheet" href="ajouter.css">
+</head>
+  <style>
+       body{
+            background-image: url('https://static.fnac-static.com/multimedia/Images/FD/Comete/142604/CCP_IMG_ORIGINAL/1876355.jpg');
+        } 
+    </style> 
+<body>
+    <form class="form" id="myForm">
+        <label for="name">Animé's name</label>
+        <input type="text" name="name" id="name" placeholder="le nom" required>
+        <label for="nbvue">Number of views</label>
+        <input type="number" name="nbvue" id="nbvue" placeholder="nombre de vue ?" required>
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        const myForm = document.getElementById('myForm');
+        
+        
+        
+        // add submit
+        myForm.addEventListener('submit',function (e){
+            //prevent 
+            e.preventDefault();
+
+            //mutlipart
+            const formData = new FormData(this);
+            /* const searchParams = new URLSearchParams(); */
+            const tab = new Array();
+            
+                let name = document.getElementById('name').value;
+                let nbvue = document.getElementById('nbvue').value;
+                console.log(tab);
+             /* for(const pair in formData){
+                console.log(document.getElementById('name').value); 
+                searchParams.append(pair[0],pair[1]);
+                 console.log(searchParams);
+             }  */
+            //console.log(formData[nbvue]);
+            fetch('http://localhost:5500/post/',{
+                method:"post",
+                body: JSON.stringify({
+                    name,
+                    nbvue,
+                }),  // formData
+                headers:{
+                    "Content-type":"application/json",
+                } 
+            }).then(function(response){
+                return response.json();
+            }).then(function(text){
+                console.log(text);
+            }).catch(function(error){
+                console.error(error);
+            })
+        });
+    </script>
+    
+</body>
+</html>
