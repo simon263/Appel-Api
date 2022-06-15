@@ -14,12 +14,7 @@ body{
     font-family:"poppins",sans-serif;
     min-height: 100vh;
 }
-/* .menu a:hover {
-    background-color: rgb(102, 57, 238);
-    color: #5fdff5;
-    border-color: #ec43ff;
-    
-} */
+
 ul {
     list-style-type: none;
     margin: 0;

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <label for="id">Entrer votre id</label>
+    <input type="text" name="id" id="id">
+    <button id="btn3" type="submit">supprimer</button>    
+    <script>
+    btn3.onclick = () =>{
+        fetch("http://localhost:5500/post/"+id.value,{
+        method: "delete",
+        headers:{
+            'Content-type':'application/json'
+        },
+    })
+    .then((response)=>response.json())
+    .then((json)=>console.log(json));
+    }
+    </script>
+</body>
+</html>

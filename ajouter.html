@@ -33,24 +33,19 @@
 
             //mutlipart
             const formData = new FormData(this);
-            /* const searchParams = new URLSearchParams(); */
+           
             const tab = new Array();
             
                 let name = document.getElementById('name').value;
                 let nbvue = document.getElementById('nbvue').value;
                 console.log(tab);
-             /* for(const pair in formData){
-                console.log(document.getElementById('name').value); 
-                searchParams.append(pair[0],pair[1]);
-                 console.log(searchParams);
-             }  */
-            //console.log(formData[nbvue]);
+            
             fetch('http://localhost:5500/post/',{
                 method:"post",
                 body: JSON.stringify({
                     name,
                     nbvue,
-                }),  // formData
+                }), 
                 headers:{
                     "Content-type":"application/json",
                 } 
